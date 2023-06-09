@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+    <!-- h1 element -->
+    </div>
+    <!-- cdn links -->
+    <!-- injected react -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <script>
+        // document.createElement
+
+        //create an element is the core thing of React.
+        const heading=React.createElement('h1',{},"Hello World from React")
+
+        //create an root=>job of ReactDOM
+        const root=ReactDOM.createRoot(document.getElementById('root'))
+
+        root.render(heading)
+
+    </script>
+    
+</body>
+</html>
