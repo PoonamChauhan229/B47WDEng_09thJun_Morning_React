@@ -1,0 +1,33 @@
+npx create-react-app projectname
+cd=>change directory
+cd path of react app
+
+cd project_react
+npm start
+
+Node Package Manager
+dependencies which are required to run the project.
+
+// React => 
+// Component Based
+
+// 2 types of Components
+Class Component
+
+Functional Component
+
+Function in js
+
+App()xxxxxxxx
+<App/>
+<App></App>
+
+Function we pass parameters and arguments
+parameters?=>
+arguments?=>
+
+
+App()
+
+<App/>
+
