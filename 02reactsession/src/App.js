@@ -1,4 +1,5 @@
 import './App.css';
+import {Counter} from './Components/Counter';
 import Firstcode from './Components/Firstcode';
 import Message from './Components/Message';
 import RepeatMessage from './Components/RepeatMessage';
@@ -33,7 +34,8 @@ function App() {
 
   return (
     <div>
-       <Firstcode/>
+       {/* <Firstcode/> */}
+       <Counter/>
     
     <div className="App">
      

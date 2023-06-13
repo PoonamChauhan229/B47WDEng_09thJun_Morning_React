@@ -1,3 +1,5 @@
+import { Counter } from "./Counter"
+
 // Destructing an Object
 const RepeatMessage=({nickNname,pic})=>{
     const name="Guvi Geek"
@@ -12,7 +14,10 @@ const RepeatMessage=({nickNname,pic})=>{
             <img src={pic}alt="" className="profile-pic" />
             <h1>Name is {name}</h1>
             <h2>Nick Name is {nickNname}</h2>
+            <Counter/>
         </div>
+
+    
     )
 }
 

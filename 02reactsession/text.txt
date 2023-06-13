@@ -31,3 +31,18 @@ App()
 
 <App/>
 
+Counter Component
+👍👎=>Youtube/Facebook
+
+
+ const [state,setState]=useState(Initial Value)
+
+ useState=>
+ Returns an array
+
+ Array Destructing
+ [state,setState]
+
+
+
+
