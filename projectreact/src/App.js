@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Movie from './Components/Movie';
+import AddColor from './Components/AddColor';
+import Navbar from './Components/Navbar';
 
 function App() {
   const movie=[
@@ -76,15 +78,20 @@ function App() {
     }
   ];
   return (
+    <>
+    <Navbar/>
+    <AddColor/>
     <div className="App">
+      
       {/* Movie Compoments */}
       {
-        movie.map((element)=>{
-          return <Movie element={element}/>
+        movie.map((element,index)=>{
+          return <Movie element={element} key={index}/>
         })
       }
       
     </div>
+    </>
   );
 }
 

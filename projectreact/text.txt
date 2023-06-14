@@ -1,0 +1,20 @@
+react-jsx-dev-runtime.development.js:87 
+
+Warning: Each child in a list should have a unique "key" prop.
+
+Check the render method of `App`. See https://reactjs.org/link/warning-keys for more information.
+    at Movie (http://localhost:3000/static/js/bundle.js:303:5)
+    at App
+
+
+React is fast
+>Virtual DOM
+>reconcillation
+>diff alogorithm
+
+AddColor
+    >input
+    >button
+
+click on button
+
