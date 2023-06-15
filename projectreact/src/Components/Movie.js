@@ -1,8 +1,8 @@
 import {Counter} from './Counter'
 import {useState} from 'react'
-const Movie=({element})=>{
+const Movie=({name,poster,rating,summary})=>{
     // console.log(element)
-    const{name,poster,rating,summary}=element
+    // const{name,poster,rating,summary}=element
    // console.log(name,poster,rating,summary)
     const [show,setShow]=useState(true)
 

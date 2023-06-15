@@ -10,10 +10,15 @@ const colorStyle={height:"50px",width:"230px",backgroundColor:element,marginBott
     // <React.Fragment>
     <>
         <div style={colorStyle}></div>
-        <h1>hello</h1>
         </>
     // </React.Fragment>
   )
 }
 
 export default ColorBox
+
+// Challenge Time
+// End 11:10
+// AddMovie
+// 4 input boxes for each feild
+// submit button=> allmovies in the browser.
