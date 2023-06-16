@@ -22,3 +22,19 @@ click on button
 Routing:
 npm i react-router-dom@6
 
+Hooks
+useNavigate()
+
+
+Task:
+AddMovie
+>Button=>Back
+>Button should take to Home Page
+
+
+useNavigate()
+
+Navigate=> Redirection
+
+
+

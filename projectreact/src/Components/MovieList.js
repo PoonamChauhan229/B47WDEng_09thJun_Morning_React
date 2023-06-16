@@ -13,7 +13,7 @@ const MovieList=({movieList})=>{
         //using as an props
         //   return <Movie element={element} key={index}/>
         // spread operator
-        return <Movie {...element} key={index}/>
+        return <Movie {...element} key={index} id={index}/>
         })
       }
       

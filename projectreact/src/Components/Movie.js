@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import {Counter} from './Counter'
 import {useState} from 'react'
-const Movie=({name,poster,rating,summary})=>{
+const Movie=({name,poster,rating,summary,id})=>{
+
+    const navigate=useNavigate()
     // console.log(element)
     // const{name,poster,rating,summary}=element
    // console.log(name,poster,rating,summary)
@@ -37,7 +40,11 @@ const Movie=({name,poster,rating,summary})=>{
                 }}
 
                 >{show?"🔽":"🔼"}                
-                </button>                
+                </button>  
+
+                <button onClick={()=>{
+                    navigate(`/movies/${id}`)
+                }}>Info</button>             
                 </h4>   
                           
                 <h4 style={ratingStyle}>⭐{rating}</h4>                
