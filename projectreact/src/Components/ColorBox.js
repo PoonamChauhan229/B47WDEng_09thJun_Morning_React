@@ -1,15 +1,15 @@
+import { Box } from "@mui/material"
 import React from "react"
 
 const ColorBox = ({element}) => {
-// create an object and pass it in style and check
-const colorStyle={height:"50px",width:"230px",backgroundColor:element,marginBottom:"2px"}
-
-// 12:00 end task
+console.log(element)
   return (
     //ReactFragment
     // <React.Fragment>
     <>
-        <div style={colorStyle}></div>
+       
+        <Box sx={{width:"50%",height:"55px",margin:"1% 25% 1% 25%",
+        backgroundColor:element}}></Box>
         </>
     // </React.Fragment>
   )

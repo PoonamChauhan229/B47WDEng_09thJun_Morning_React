@@ -1,4 +1,9 @@
 import {useState} from 'react'
+
+import Badge from '@mui/material/Badge';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import { IconButton } from '@mui/material';
 export const Counter=()=>{
    // let like=0;//local variable 
     //React varaible=>state varaiable 
@@ -12,31 +17,32 @@ export const Counter=()=>{
 // setState=> function => responsible for updating value of the state variable
 // 
     return(
-        
-        <div>
-            {/* // JSX=> only one JSX */}
-             <button
-             className='likeButton'
-             onClick={
-                ()=>{
-                     setLike(like+1)                    
-                }                
-             }>👍{like}</button>
+        <>
+<IconButton>
+<Badge badgeContent={like} color="success"
+onClick={
+   ()=>{
+        setLike(like+1)                    
+   }                
+}
 
-             {/* Dislike Button => Dislike button value should increase */}
+>
+  <ThumbUpIcon color="action" />
+</Badge>
+</IconButton>
 
-             {/* End task 11:15 */}
-             <button
-              className='dislikeButton'
-             onClick={
-                ()=>{
-                    setDislike(dislike+1)
-                }
-             }>
-                👎{dislike}
-             </button>
+<IconButton>
+<Badge badgeContent={dislike} color="error" 
+onClick={
+   ()=>{
+       setDislike(dislike+1)
+   }
+}
 
-        </div>
-
+>
+  <ThumbDownIcon color="action" />
+</Badge>
+</IconButton>
+</>
         )
              }
