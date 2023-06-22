@@ -2,6 +2,7 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
+import { useState } from 'react';
 
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -54,7 +55,31 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-function NavbarMUI() {
+const filterMovieData=(searchText,movieList)=>{
+ 
+  return (movieList.filter((element)=>element.name.toUpperCase().includes(searchText.toUpperCase())))
+}
+
+function NavbarMUI({setMovieList,movieList,filterMovieList,setfilterMovieList,mode,setMode}) {
+  const[searchText,setSearchText]=useState("")
+  console.log(filterMovieList)
+  console.log("mode is",mode)
+  const handleSearchChange=(e)=>{
+    const value=e.target.value
+    setSearchText(value)
+    console.log(searchText)
+    //handleSearchBlur()
+  }
+
+  const handleSearchBlur=()=>{
+    console.log(1)
+    //filter out the data from the array
+    const data=filterMovieData(searchText,movieList)
+    console.log(data)
+    //update the data=> movielist
+    // setMovieList(data)=>1 search
+    setfilterMovieList(data)
+    }
 const navigate=useNavigate()
   return (
     <Box sx={{ display: 'flex',marginBottom:"5%" }}>
@@ -87,6 +112,24 @@ const navigate=useNavigate()
                 navigate('/colorgame')
               }}
               >Colorgame</Button>
+         
+
+          <Button sx={{ color: '#fff' }}
+              onClick={()=>{
+                navigate('/propdrilling')
+              }}
+              >PropDrilling</Button>
+         
+
+          <Button sx={{ color: '#fff' }}
+              onClick={()=>{
+                navigate('/themecontext')
+              }}
+              >useContext</Button>
+
+              <Button sx={{ color: '#fff' }}
+              onClick={()=>{setMode(mode==="light"?"dark":"light")}}
+              >{mode==="light"?"dark Mode":"light Mode"}</Button>
           </Box>
           
         {/* serach functionality added */}
@@ -95,8 +138,12 @@ const navigate=useNavigate()
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
+            value={searchText}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={handleSearchChange}     
+              onBlur={handleSearchBlur}         
+
             />
           </Search>
 

@@ -1,6 +1,6 @@
 import { allmovies } from "./constants";
 import Movie from "./Movie";
-const MovieList=({movieList})=>{
+const MovieList=({movieList,filterMovieList})=>{
   console.log(movieList)
     return(
         <>
@@ -9,7 +9,7 @@ const MovieList=({movieList})=>{
       {/* Movie Compoments */}
       {
         // allmovies.map((element,index)=>{
-          movieList.map((element,index)=>{
+          filterMovieList.map((element,index)=>{
         //using as an props
         //   return <Movie element={element} key={index}/>
         // spread operator

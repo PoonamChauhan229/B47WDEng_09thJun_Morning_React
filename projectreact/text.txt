@@ -38,3 +38,32 @@ Navigate=> Redirection
 
 
 
+Prop Drilling
+>Theme=> mode setmode
+    >list   
+        >listitem
+            >button=> mode will chanage
+
+
+>Prop Drilling theme
+
+useContext()
+>button => mode
+
+
+creating the context
+const axy=createContext
+
+const [state,setState]=useState({})
+
+using it anywhere
+useContext(axy)
+
+create the context
+const axy=createContext
+
+modify the context
+<axy.Provider value={}></axy.Provider
+use the context
+useContext(axy)
+

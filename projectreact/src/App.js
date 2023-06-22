@@ -9,12 +9,31 @@ import { Navigate, Route, Routes} from "react-router-dom";
 import NotFound from './Components/NotFound';
 import MovieDetails from './Components/MovieDetails';
 import NavbarMUI from './Components/NavbarMUI';
+import { Theme } from './Components/PropDrilling/Theme';
+import { ThemeContext } from './Components/UseContext/ThemeContext';
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 function App() {
+  const[mode,setMode]=useState("dark")
+  const theme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
   const [movieList,setMovieList]=useState(allmovies)
+
+  const [filterMovieList,setfilterMovieList]=useState(allmovies)
     return (
     <>
+    <ThemeProvider theme={theme}>
     {/* <Navbar/> */}
-    <NavbarMUI/>
+
+
+    <NavbarMUI movieList={movieList} setMovieList={setMovieList}
+    filterMovieList={filterMovieList} setfilterMovieList={setfilterMovieList}
+    mode={mode} setMode={setMode}
+    />
     {/* <MovieDetails/> */}
 
       {/* <AddMovie setMovieList={setMovieList} movieList={movieList}/>
@@ -22,7 +41,7 @@ function App() {
       <AddColor/> */}
     <Routes>
     {/* <Route path="/" element={<Home />} /> */}
-    <Route exact path='/' element={<MovieList movieList={movieList} />}/>
+    <Route exact path='/' element={<MovieList movieList={movieList} filterMovieList={filterMovieList}/>}/>
 
     <Route exact path='/addmovie' element={<AddMovie setMovieList={setMovieList} movieList={movieList}/>}/>
 
@@ -43,7 +62,13 @@ function App() {
 
     {/* `/movies/${id}` */}
     <Route exact path="/movies/:id" element={<MovieDetails movieList={movieList}/>}/>
+   
+
+    <Route exact path='/propdrilling' element={<Theme/>}/>
+    <Route exact path='/themecontext' element={<ThemeContext/>}/>
+
     </Routes>
+    </ThemeProvider>
     </>
   );
 }

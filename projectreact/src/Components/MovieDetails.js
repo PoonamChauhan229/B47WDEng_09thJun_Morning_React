@@ -10,7 +10,7 @@ const navigate=useNavigate();
     <>
       <h1>MovieDetails-{id}</h1>
       <iframe
-        width="853"
+        width="1000"
         height="480"
         src={movie.trailer}
         title={movie.name}
