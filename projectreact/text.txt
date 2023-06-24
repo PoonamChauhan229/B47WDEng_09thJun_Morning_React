@@ -37,4 +37,10 @@ useNavigate()
 Navigate=> Redirection
 
 
+2 things 
+1=> npm i confetti
+2=> restart
+
+useEffect()
+
 

@@ -19,8 +19,8 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 
 
-const Movie=({name,poster,rating,summary,id})=>{
-
+const Movie=({name,poster,rating,summary,id,deleteButton,editButton})=>{
+console.log(id)
     const navigate=useNavigate()
     // console.log(element)
     // const{name,poster,rating,summary}=element
@@ -82,6 +82,9 @@ const Movie=({name,poster,rating,summary,id})=>{
 
     <CardActions disableSpacing>
         <Counter/>
+        {editButton}
+        {deleteButton}
+
             <IconButton aria-label="add to favorites"
             onClick={()=>setShow(!show)}
             >

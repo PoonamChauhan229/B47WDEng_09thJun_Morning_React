@@ -1,10 +1,21 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
+import { useEffect, useState } from "react";
 const MovieDetails = ({movieList}) => {
     // console.log(movieList)
 const navigate=useNavigate();
     const {id}=useParams()
-    const movie=movieList[id]
+  const [movie,setMovie]=useState({})
+
+    const getMovies=()=>{
+      fetch(`https://63e4b3c5c04baebbcdaa0ebb.mockapi.io/movies/${id}`,{method:"GET"})
+      .then((data)=>data.json())
+      .then((res)=>setMovie(res))
+    }
+
+    useEffect(() => getMovies(), [])
+    
+    //const movie=movieList[id]
     console.log(movie)
   return (
     <>
@@ -12,8 +23,8 @@ const navigate=useNavigate();
       <iframe
         width="853"
         height="480"
-        src={movie.trailer}
-        title={movie.name}
+        src={movie?.trailer}
+        title={movie?.name}
         // frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen

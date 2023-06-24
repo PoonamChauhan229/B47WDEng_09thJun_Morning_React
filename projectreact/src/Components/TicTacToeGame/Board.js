@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import GameBox from './GameBox'
+import { useWindowSize } from '@react-hook/window-size'
+import Confetti from 'react-confetti'
 
-const Board = ({boardVal,setBoardVal}) => {
+const Board = ({boardVal,setBoardVal,initialValue}) => {
+    const { width, height } = useWindowSize()
 
     //2 players 
     const [isXturn,setIsXturn]=useState(true)
@@ -46,6 +49,11 @@ const Board = ({boardVal,setBoardVal}) => {
     const winner=decideWinner(boardVal)
   return (
     <>
+    {winner && <Confetti
+      width={width}
+      height={height}
+      gravity={0.1}
+    />}
     <div className='board'>
     {/* map */}
     {
@@ -55,8 +63,12 @@ const Board = ({boardVal,setBoardVal}) => {
             />
         })
     }
-    <h1>Winner is:{winner}</h1>
-    </div>
+     </div>
+    {winner && <h1>Winner is:{winner}</h1>}
+    <button onClick={()=>{
+        setBoardVal(initialValue)
+    }}>Restart</button>
+   
     </>
   )
 }

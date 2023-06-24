@@ -35,3 +35,23 @@
   padding: 2px 4px 2px 4px;
   margin-left: 4px;
 }
+
+.gamebox{
+  height:100px;
+  width:100px;
+  border:1px solid black;
+  display: flex;
+  align-items:center ;
+  justify-content: center;
+  font-size: 100px;
+  background-color: white;
+  color:black
+}
+.board{
+  width:300px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.gamebox:hover{
+  background-color: rgb(216, 210, 210);
+}
