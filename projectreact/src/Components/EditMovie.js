@@ -1,19 +1,40 @@
 import { Box, TextField } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddMovie=({setMovieList,movieList})=>{
-    const [movieName,setMovieName]=useState("")
-    const [poster,setPoster]=useState("")
-    const [rating,setRating]=useState("")
-    const [summary,setSummary]=useState("")
-    const [trailer,setTrailer]=useState("")
+
+export const EditMovie=()=>{
+    const[movie,setMovie]=useState(null)
+    const {id}=useParams()
+    console.log(id)
+
+    const getMovies=()=>{
+        fetch(`https://63e4b3c5c04baebbcdaa0ebb.mockapi.io/movies/${id}`)
+        .then((data)=>data.json())
+        .then((res)=>setMovie(res))
+    }
+   useEffect(()=>getMovies(),[])
+   return(
+    <>
+    {movie? <EditMovieForm movie={movie}/> :"Loading...."}
+    </>
+   )
+}
+
+
+const EditMovieForm=({movie})=>{
+    console.log(movie)
+    const [movieName,setMovieName]=useState(movie.name)
+    const [poster,setPoster]=useState(movie.poster)
+    const [rating,setRating]=useState(movie.rating)
+    const [summary,setSummary]=useState(movie.summary)
+    const [trailer,setTrailer]=useState(movie.trailer)
     const navigate=useNavigate()
+    
 
-
-    const addMovie=()=>{
+    const upadteMovie=(id)=>{
             const movie={
                 name:movieName,
                 poster,
@@ -23,13 +44,13 @@ const AddMovie=({setMovieList,movieList})=>{
             }
             console.log("Movie Added",movie)
 
-            // POST METHOD
+            // PUT METHOD
             //header: Content-type:"application/json"
             //string=>JSON.stringify(movie)
             //fetch always returns an promise=> access the value of it=> .then() method 
 
-            fetch('https://63e4b3c5c04baebbcdaa0ebb.mockapi.io/movies',{
-                method:"POST",
+            fetch(`https://63e4b3c5c04baebbcdaa0ebb.mockapi.io/movies/${id}`,{
+                method:"PUT",
                 body:JSON.stringify(movie),
                 headers:{
                     "Content-type":"application/json"
@@ -85,10 +106,10 @@ const AddMovie=({setMovieList,movieList})=>{
             <Button 
             sx={{marginLeft:"40%"}}
             variant="contained"
-            onClick={()=>addMovie()}
+            onClick={()=>upadteMovie(movie.id)}
             
             
-            >Add Movie</Button>
+            >Update Movie</Button>
 
             <Button sx={{marginLeft:"30%",width:"8.5%"}}
             variant="contained"
@@ -103,5 +124,5 @@ const AddMovie=({setMovieList,movieList})=>{
         </>
     )
 }
-export default AddMovie;
+
 // https://www.youtube.com/embed/X7lRGozX8KQ

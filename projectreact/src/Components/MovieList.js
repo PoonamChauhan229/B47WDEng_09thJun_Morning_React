@@ -4,10 +4,13 @@ import Movie from "./Movie";
 import { useEffect, useState } from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+
+import { useNavigate } from "react-router-dom";
 const MovieList=()=>{
 
   const [movieList,setMovieList]=useState([])
   console.log(movieList)
+  const navigate=useNavigate()
 
   const getMovies=()=>{
     fetch("https://63e4b3c5c04baebbcdaa0ebb.mockapi.io/movies")
@@ -55,7 +58,7 @@ const MovieList=()=>{
         editButton={
           <IconButton aria-label="delete" color="success">
           <EditIcon 
-           onClick={()=>{}}
+           onClick={()=>{navigate(`/edit/${element.id}`)}}
           />
         </IconButton>
         }

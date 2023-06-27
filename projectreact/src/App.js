@@ -13,6 +13,7 @@ import { Theme } from './Components/PropDrilling/Theme';
 import { ThemeContext } from './Components/UseContext/ThemeContext';
 import TictacToe from './Components/TicTacToeGame/TicTacToe'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import {EditMovie} from './Components/EditMovie';
 
 function App() {
   const[mode,setMode]=useState("dark")
@@ -68,6 +69,7 @@ function App() {
     <Route exact path='/themecontext' element={<ThemeContext/>}/>
     <Route exact path='/tictactoe' element={<TictacToe/>}/>
    
+   <Route exact path='/edit/:id' element={<EditMovie/>}/>
     </Routes>
     </ThemeProvider>
     </>
