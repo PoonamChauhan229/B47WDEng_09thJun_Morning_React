@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export const EditMovie=()=>{
     const[movie,setMovie]=useState(null)
     const {id}=useParams()
-    console.log(id)
+    //console.log(id)
 
     const getMovies=()=>{
         fetch(`https://63e4b3c5c04baebbcdaa0ebb.mockapi.io/movies/${id}`)
