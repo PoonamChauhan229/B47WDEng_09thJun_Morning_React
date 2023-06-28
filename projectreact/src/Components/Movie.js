@@ -19,7 +19,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 
 
-const Movie=({name,poster,rating,summary,id,deleteButton,editButton})=>{
+const Movie=({name,poster,rating,summary,id,deleteButton,editButton,addCartItem})=>{
 console.log(id)
     const navigate=useNavigate()
     // console.log(element)
@@ -84,6 +84,7 @@ console.log(id)
         <Counter/>
         {editButton}
         {deleteButton}
+        {addCartItem}
 
             <IconButton aria-label="add to favorites"
             onClick={()=>setShow(!show)}

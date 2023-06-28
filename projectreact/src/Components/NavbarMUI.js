@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { useSelector } from 'react-redux';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -61,6 +62,8 @@ const filterMovieData=(searchText,movieList)=>{
 }
 
 function NavbarMUI({setMovieList,movieList,filterMovieList,setfilterMovieList,mode,setMode}) {
+ const cartItems=useSelector(store=>store.cart.items)
+ 
   const[searchText,setSearchText]=useState("")
   console.log(filterMovieList)
   console.log("mode is",mode)
@@ -131,12 +134,21 @@ const navigate=useNavigate()
               onClick={()=>{setMode(mode==="light"?"dark":"light")}}
               >{mode==="light"?"dark Mode":"light Mode"}</Button>
 
-<Button sx={{ color: '#fff' }}
-              onClick={()=>{
-                navigate('/tictactoe')
-              }}
-              >TicTacToe</Button>
-          </Box>
+            <Button sx={{ color: '#fff' }}
+            onClick={()=>{
+              navigate('/tictactoe')
+            }}
+            >TicTacToe</Button>
+
+
+
+        <Button sx={{ color: '#fff' }}
+        onClick={()=>{
+          navigate('/cart')
+        }}
+        >Cart-{cartItems.length} Items</Button>
+          
+       </Box>
           
         {/* serach functionality added */}
           <Search>

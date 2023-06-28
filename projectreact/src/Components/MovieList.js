@@ -4,9 +4,20 @@ import Movie from "./Movie";
 import { useEffect, useState } from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-
+import {Button} from '@mui/material'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "./utils/cartSlice";
 const MovieList=()=>{
+
+  const dispatch=useDispatch()
+const handleAddItem=(movie)=>{
+  //dispatch
+ dispatch(addItem(movie))
+}
+
+
 
   const [movieList,setMovieList]=useState([])
   console.log(movieList)
@@ -63,6 +74,12 @@ const MovieList=()=>{
         </IconButton>
         }
         
+        addCartItem={
+          <IconButton
+          onClick={()=>{handleAddItem(element)}}
+          
+          ><AddCircleOutlineIcon/></IconButton>
+        }
         
         />
         })

@@ -14,6 +14,9 @@ import { ThemeContext } from './Components/UseContext/ThemeContext';
 import TictacToe from './Components/TicTacToeGame/TicTacToe'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import {EditMovie} from './Components/EditMovie';
+import store from './Components/utils/store';
+import { Provider } from 'react-redux';
+import Cart from './Components/Cart';
 
 function App() {
   const[mode,setMode]=useState("dark")
@@ -27,6 +30,7 @@ function App() {
   const [filterMovieList,setfilterMovieList]=useState(allmovies)
     return (
     <>
+    <Provider store={store}>
     <ThemeProvider theme={theme}>
     {/* <Navbar/> */}
 
@@ -70,8 +74,10 @@ function App() {
     <Route exact path='/tictactoe' element={<TictacToe/>}/>
    
    <Route exact path='/edit/:id' element={<EditMovie/>}/>
+   <Route exact path='/cart' element={<Cart/>}/>
     </Routes>
     </ThemeProvider>
+    </Provider>
     </>
   );
 }

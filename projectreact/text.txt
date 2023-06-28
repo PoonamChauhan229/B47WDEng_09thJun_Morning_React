@@ -44,3 +44,5 @@ Navigate=> Redirection
 useEffect()
 
 
+>
+Configure our Store in the App.
