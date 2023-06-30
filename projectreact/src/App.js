@@ -17,6 +17,7 @@ import {EditMovie} from './Components/EditMovie';
 import store from './Components/utils/store';
 import { Provider } from 'react-redux';
 import Cart from './Components/Cart';
+import ClassProfile from './Components/ClassComponent/ClassProfile';
 
 function App() {
   const[mode,setMode]=useState("dark")
@@ -25,7 +26,7 @@ function App() {
       mode: mode,
     },
   });
-  const [movieList,setMovieList]=useState(allmovies)
+  const [movieList,setMovieList]=useState([allmovies])
 
   const [filterMovieList,setfilterMovieList]=useState(allmovies)
     return (
@@ -33,7 +34,7 @@ function App() {
     <Provider store={store}>
     <ThemeProvider theme={theme}>
     {/* <Navbar/> */}
-
+    
 
     <NavbarMUI movieList={movieList} setMovieList={setMovieList}
     filterMovieList={filterMovieList} setfilterMovieList={setfilterMovieList}
@@ -75,6 +76,7 @@ function App() {
    
    <Route exact path='/edit/:id' element={<EditMovie/>}/>
    <Route exact path='/cart' element={<Cart/>}/>
+   <Route exact path='/profile' element={<ClassProfile/>}/>
     </Routes>
     </ThemeProvider>
     </Provider>

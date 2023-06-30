@@ -27,6 +27,7 @@ const handleAddItem=(movie)=>{
     fetch("https://63e4b3c5c04baebbcdaa0ebb.mockapi.io/movies")
     .then((data)=>data.json())
     .then((res)=>setMovieList(res))
+    
   }
 
   const deleteMovies=(id)=>{

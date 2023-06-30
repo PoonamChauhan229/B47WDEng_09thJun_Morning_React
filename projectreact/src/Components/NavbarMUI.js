@@ -147,6 +147,13 @@ const navigate=useNavigate()
           navigate('/cart')
         }}
         >Cart-{cartItems.length} Items</Button>
+
+
+<Button sx={{ color: '#fff' }}
+        onClick={()=>{
+          navigate('/profile')
+        }}
+        >Class Component</Button>
           
        </Box>
           
